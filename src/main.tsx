@@ -4,6 +4,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import 'normalize.css';
 
+import '@/assets/css/index.css';
 import App from '@/App.tsx';
 import store, { persistor } from '@/store';
 import '@/mock';
