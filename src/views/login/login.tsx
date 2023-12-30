@@ -47,6 +47,7 @@ const login: FC<IProps> = () => {
       dispatch(changeFirstRouterReducer(firstPath));
       // 跳转到第一个路由
       navigate(firstPath);
+      message.success('登录成功');
     } catch (error) {
       message.error(error as string);
     }
