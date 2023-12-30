@@ -1,6 +1,6 @@
 import { memo, useState } from 'react';
 import type { FC, ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, Col, Menu, Row, Typography, message } from 'antd';
 import type { MenuProps } from 'antd';
 import { LoginOutlined } from '@ant-design/icons';
@@ -18,11 +18,11 @@ const { Text } = Typography;
 interface IProps {
   children?: ReactNode;
   menuList: IRoutes[];
-  firstRouter: string;
 }
 
-const LayoutSider: FC<IProps> = ({ menuList, firstRouter }) => {
+const LayoutSider: FC<IProps> = ({ menuList }) => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const { themeColor } = useAppSelector((state) => state.main, useAppShallowEqual);
   // 处理antd menu的数据
   const items = getMenuData(menuList);
@@ -57,7 +57,7 @@ const LayoutSider: FC<IProps> = ({ menuList, firstRouter }) => {
           </div>
         </Col>
         <Col span={24}>
-          <Menu onClick={onClickPushRouter} defaultSelectedKeys={[firstRouter]} mode="inline" items={items} />
+          <Menu onClick={onClickPushRouter} defaultSelectedKeys={[pathname]} mode="inline" items={items} />
         </Col>
       </Row>
       <Row className="sider-buttom">
