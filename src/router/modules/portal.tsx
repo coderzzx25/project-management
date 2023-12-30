@@ -2,18 +2,18 @@ import { lazy, LazyExoticComponent, NamedExoticComponent } from 'react';
 import LayoutContent from '@/components/LayoutContent/LayoutContent';
 import lazyLoad from '../utils/lazyLoad';
 
-const Data: LazyExoticComponent<NamedExoticComponent<any>> = lazy(() => import('@/views/data/data'));
+const Portal: LazyExoticComponent<NamedExoticComponent<any>> = lazy(() => import('@/views/portal/portal'));
 
-const data = [
+const portalRouter = [
   {
     element: <LayoutContent />,
     children: [
       {
-        path: '/data/data',
-        element: lazyLoad(Data)
+        path: '/portal/portal',
+        element: lazyLoad(Portal)
       }
     ]
   }
 ];
 
-export default data;
+export default portalRouter;

@@ -5,8 +5,8 @@ interface IProps {
   children?: ReactNode;
 }
 
-const about: FC<IProps> = () => {
-  return <div>about</div>;
+const calendar: FC<IProps> = () => {
+  return <div>calendar</div>;
 };
 
-export default memo(about);
+export default memo(calendar);

@@ -4,14 +4,39 @@ import { localCache } from '@/utils/cache';
 
 const menuData: IRoutes[] = [
   {
-    icon: 'HomeOutlined',
-    title: '数据大屏',
-    path: '/data/data'
+    icon: 'AppstoreFilled',
+    title: '仪表盘',
+    path: '/dashboard/dashboard'
   },
   {
-    icon: 'PaperClipOutlined',
-    title: '关于我',
-    path: '/about/about'
+    icon: 'FunnelPlotFilled',
+    title: '项目',
+    path: '/project/project'
+  },
+  {
+    icon: 'CalendarFilled',
+    title: '日历',
+    path: '/calendar/calendar'
+  },
+  {
+    icon: 'RocketFilled',
+    title: '假期',
+    path: '/holiday/holiday'
+  },
+  {
+    icon: 'ContactsFilled',
+    title: '雇员',
+    path: '/employee/employee'
+  },
+  {
+    icon: 'MessageFilled',
+    title: '消息',
+    path: '/message/message'
+  },
+  {
+    icon: 'FolderOpenFilled',
+    title: '门户网站',
+    path: '/portal/portal'
   }
 ];
 

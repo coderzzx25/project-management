@@ -2,18 +2,18 @@ import { lazy, LazyExoticComponent, NamedExoticComponent } from 'react';
 import LayoutContent from '@/components/LayoutContent/LayoutContent';
 import lazyLoad from '../utils/lazyLoad';
 
-const About: LazyExoticComponent<NamedExoticComponent<any>> = lazy(() => import('@/views/about/about'));
+const Project: LazyExoticComponent<NamedExoticComponent<any>> = lazy(() => import('@/views/project/project'));
 
-const aboutRouter = [
+const projectRouter = [
   {
     element: <LayoutContent />,
     children: [
       {
-        path: '/about/about',
-        element: lazyLoad(About)
+        path: '/project/project',
+        element: lazyLoad(Project)
       }
     ]
   }
 ];
 
-export default aboutRouter;
+export default projectRouter;

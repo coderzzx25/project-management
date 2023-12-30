@@ -5,8 +5,8 @@ interface IProps {
   children?: ReactNode;
 }
 
-const data: FC<IProps> = () => {
-  return <div>data</div>;
+const message: FC<IProps> = () => {
+  return <div>message</div>;
 };
 
-export default memo(data);
+export default memo(message);
