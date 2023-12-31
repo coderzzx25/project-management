@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Checkbox, Col, Form, Image, Input, Row, message } from 'antd';
+import { Button, Checkbox, Col, Form, Image, Input, Row, message, theme, Typography } from 'antd';
 
 import LoginWrapper from './style';
 import { userLogin, menuList } from '@/service/modules';
@@ -25,9 +25,13 @@ interface IProps {
   children?: ReactNode;
 }
 
+const { Title, Text } = Typography;
 const login: FC<IProps> = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const {
+    token: { colorBgContainer }
+  } = theme.useToken();
   const { themeColor } = useAppSelector((state) => state.main, useAppShallowEqual);
   const onClickLogin = async (value: ILoginInfo) => {
     try {
@@ -53,11 +57,11 @@ const login: FC<IProps> = () => {
     }
   };
   return (
-    <LoginWrapper>
+    <LoginWrapper style={{ background: colorBgContainer }}>
       <div className="login-left" style={{ background: themeColor }}>
         <div className="content">
-          <h1>公司项目管理</h1>
-          <p>公司项目管理系统</p>
+          <Title className="name">公司项目管理</Title>
+          <Text className="detailed">公司项目管理系统</Text>
           <Image src={loginImg} preview={false} />
         </div>
       </div>
@@ -65,7 +69,7 @@ const login: FC<IProps> = () => {
       <div className="login-right">
         <Row gutter={30} className="right-row">
           <Col span={24}>
-            <h2>欢迎登录</h2>
+            <Title className="login-title">欢迎登录</Title>
           </Col>
           <Form
             onFinish={onClickLogin}

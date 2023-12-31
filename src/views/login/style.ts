@@ -12,12 +12,20 @@ const LoginWrapper = styled.div`
     justify-content: center;
     align-items: center;
 
-    h1 {
-      font-size: 30px;
-    }
-    p {
-      font-size: 40px;
-      font-weight: 300;
+    .content {
+      display: flex;
+      flex-direction: column;
+
+      .name {
+        font-size: 30px;
+        color: #fff;
+      }
+      .detailed {
+        font-size: 40px;
+        font-weight: 300;
+        margin: 10px 0;
+        color: #fff;
+      }
     }
   }
   .login-right {
@@ -28,7 +36,7 @@ const LoginWrapper = styled.div`
     align-items: center;
 
     .right-row {
-      h2 {
+      .login-title {
         text-align: center;
         font-size: 22px;
         font-weight: 400;

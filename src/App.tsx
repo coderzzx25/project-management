@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { FC, ReactNode } from 'react';
 import { ConfigProvider, theme } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 
 import Router from '@/router';
 import { useAppSelector, useAppShallowEqual } from './store';
@@ -23,6 +24,7 @@ const App: FC<IProps> = () => {
           colorBgContainer: isDark ? '#1f2328' : colorBgContainer
         }
       }}
+      locale={zhCN}
     >
       <Router />
     </ConfigProvider>
