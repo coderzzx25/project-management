@@ -29,7 +29,7 @@ const App: FC<IProps> = () => {
   }, []);
 
   useEffect(() => {
-    if (onDark) {
+    if (onDark || isDark) {
       dispatch(changeIsDarkReducer(true));
     } else {
       dispatch(changeIsDarkReducer(false));
