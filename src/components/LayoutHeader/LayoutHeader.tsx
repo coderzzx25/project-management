@@ -33,7 +33,7 @@ const LayoutHeader: FC<IProps> = () => {
     }
   ];
   return (
-    <LoayoutHeaderWrapper>
+    <LoayoutHeaderWrapper style={{ background: isDark ? '#141414' : '#ffffff' }}>
       <div className="search">
         <Input placeholder="搜索" prefix={<SearchOutlined />} />
       </div>

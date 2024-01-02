@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Checkbox, Col, Form, Image, Input, Row, message, theme, Typography } from 'antd';
+import { Button, Checkbox, Col, Form, Image, Input, Row, message, Typography } from 'antd';
 
 import LoginWrapper from './style';
 import { userLogin, menuList } from '@/service/modules';
@@ -29,10 +29,8 @@ const { Title, Text } = Typography;
 const login: FC<IProps> = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const {
-    token: { colorBgContainer }
-  } = theme.useToken();
-  const { themeColor } = useAppSelector((state) => state.main, useAppShallowEqual);
+
+  const { isDark, themeColor } = useAppSelector((state) => state.main, useAppShallowEqual);
   const onClickLogin = async (value: ILoginInfo) => {
     try {
       const loginInfo = await userLogin(value);
@@ -57,7 +55,7 @@ const login: FC<IProps> = () => {
     }
   };
   return (
-    <LoginWrapper style={{ background: colorBgContainer }}>
+    <LoginWrapper>
       <div className="login-left" style={{ background: themeColor }}>
         <div className="content">
           <Title className="name">公司项目管理</Title>
@@ -66,7 +64,7 @@ const login: FC<IProps> = () => {
         </div>
       </div>
 
-      <div className="login-right">
+      <div className="login-right" style={{ background: isDark ? '#000000' : '' }}>
         <Row gutter={30} className="right-row">
           <Col span={24}>
             <Title className="login-title">欢迎登录</Title>

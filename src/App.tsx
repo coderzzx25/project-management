@@ -12,16 +12,13 @@ interface IProps {
 
 const App: FC<IProps> = () => {
   const { isDark, themeColor } = useAppSelector((state) => state.main, useAppShallowEqual);
-  const {
-    token: { colorBgContainer }
-  } = theme.useToken();
+
   return (
     <ConfigProvider
       theme={{
         algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
         token: {
-          colorPrimary: themeColor,
-          colorBgContainer: isDark ? '#1f2328' : colorBgContainer
+          colorPrimary: themeColor
         }
       }}
       locale={zhCN}

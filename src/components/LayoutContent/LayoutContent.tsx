@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
-import { Layout, theme } from 'antd';
+import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
 import { Content } from 'antd/es/layout/layout';
 import Sider from 'antd/es/layout/Sider';
@@ -20,22 +20,19 @@ interface IProps {
  * 主页面内容
  */
 const LayoutContent: FC<IProps> = () => {
-  const {
-    token: { colorBgContainer }
-  } = theme.useToken();
-  const { menuList, firstRouter } = useAppSelector((state) => state.main, useAppShallowEqual);
+  const { menuList } = useAppSelector((state) => state.main, useAppShallowEqual);
   return (
     <AuthRouter>
       <LayoutContentWrapper>
         <Layout>
-          <Sider style={{ background: colorBgContainer }}>
-            <LayoutSider menuList={menuList} firstRouter={firstRouter} />
+          <Sider>
+            <LayoutSider menuList={menuList} />
           </Sider>
           <Layout>
-            <Header style={{ background: colorBgContainer }}>
+            <Header>
               <LayoutHeader />
             </Header>
-            <Content style={{ background: colorBgContainer }}>
+            <Content>
               <Outlet />
             </Content>
           </Layout>

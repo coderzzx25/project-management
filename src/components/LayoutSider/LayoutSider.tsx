@@ -23,7 +23,7 @@ interface IProps {
 const LayoutSider: FC<IProps> = ({ menuList }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { themeColor } = useAppSelector((state) => state.main, useAppShallowEqual);
+  const { isDark, themeColor } = useAppSelector((state) => state.main, useAppShallowEqual);
   // 处理antd menu的数据
   const items = getMenuData(menuList);
   // 路由跳转
@@ -48,7 +48,7 @@ const LayoutSider: FC<IProps> = ({ menuList }) => {
     setIsLoginOutModal(false);
   };
   return (
-    <LayoutContentWrapper>
+    <LayoutContentWrapper style={{ background: isDark ? '#141414' : '#ffffff' }}>
       <Row>
         <Col span={24}>
           <div className="logo">
