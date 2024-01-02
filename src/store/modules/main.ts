@@ -1,8 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IRoutes } from '@/global/type';
 
+interface IUserInfo {
+  username: string;
+  userhead: string;
+}
+
 interface IMainState {
-  userInfo: object;
+  userInfo: IUserInfo;
   token: string;
   menuList: IRoutes[];
   firstRouter: string;
@@ -13,7 +18,10 @@ interface IMainState {
 const mainSlice = createSlice({
   name: 'main',
   initialState: {
-    userInfo: {},
+    userInfo: {
+      username: '',
+      userhead: ''
+    },
     token: '',
     menuList: [],
     firstRouter: '',
@@ -21,7 +29,7 @@ const mainSlice = createSlice({
     themeColor: '#1890ff'
   } as IMainState,
   reducers: {
-    changeUserInfoReducer(state, { payload }: PayloadAction<object>) {
+    changeUserInfoReducer(state, { payload }: PayloadAction<IUserInfo>) {
       state.userInfo = payload;
     },
     changeTokenReducer(state, { payload }: PayloadAction<string>) {

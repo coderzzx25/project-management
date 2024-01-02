@@ -2,7 +2,7 @@ import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 import { Avatar, Button, ColorPicker, Dropdown, Input, Space } from 'antd';
 import type { Color } from 'antd/es/color-picker';
-import { AlertFilled, AlertOutlined, DownOutlined, SearchOutlined, UserOutlined } from '@ant-design/icons';
+import { AlertFilled, AlertOutlined, DownOutlined, SearchOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 
 import { useAppDispatch, useAppSelector, useAppShallowEqual } from '@/store';
@@ -16,7 +16,7 @@ interface IProps {
 
 const LayoutHeader: FC<IProps> = () => {
   const dispatch = useAppDispatch();
-  const { isDark, themeColor } = useAppSelector((state) => state.main, useAppShallowEqual);
+  const { isDark, themeColor, userInfo } = useAppSelector((state) => state.main, useAppShallowEqual);
   // 修改主题颜色,需要使用防抖,不然会导致页面卡顿
   const onChangeThemeColor = debounce((color: Color) => {
     dispatch(changeThemeColorReducer(color.toHexString()));
@@ -40,7 +40,7 @@ const LayoutHeader: FC<IProps> = () => {
       <div className="user">
         <Button
           onClick={onChangeDark}
-          icon={isDark ? <AlertOutlined style={{ fontSize: '18px' }} /> : <AlertFilled style={{ fontSize: '18px' }} />}
+          icon={isDark ? <AlertOutlined /> : <AlertFilled />}
           className="operate"
           size="small"
         ></Button>
@@ -52,8 +52,8 @@ const LayoutHeader: FC<IProps> = () => {
         />
         <Dropdown menu={{ items }}>
           <Space>
-            <Avatar size={32} icon={<UserOutlined />} />
-            <span>coderzzx</span>
+            <Avatar size={32} src={userInfo.userhead} />
+            <span>{userInfo.username}</span>
             <DownOutlined />
           </Space>
         </Dropdown>
