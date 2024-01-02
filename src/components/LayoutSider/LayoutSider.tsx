@@ -7,7 +7,7 @@ import { LoginOutlined } from '@ant-design/icons';
 
 import { IRoutes } from '@/global/type';
 import { getMenuData } from '@/utils/antmenu';
-import LayoutContentWrapper from './style';
+import LayoutSiderWrapper from './style';
 import Logo from '../Logo/Logo';
 import { useAppSelector, useAppShallowEqual } from '@/store';
 import OnlineSupport from '../OnlineSupport/OnlineSupport';
@@ -48,7 +48,7 @@ const LayoutSider: FC<IProps> = ({ menuList }) => {
     setIsLoginOutModal(false);
   };
   return (
-    <LayoutContentWrapper style={{ background: isDark ? '#141414' : '#ffffff' }}>
+    <LayoutSiderWrapper style={{ background: isDark ? '#141414' : '#ffffff' }}>
       <Row>
         <Col span={24}>
           <div className="logo">
@@ -76,7 +76,7 @@ const LayoutSider: FC<IProps> = ({ menuList }) => {
           ></Modal>
         </Col>
       </Row>
-    </LayoutContentWrapper>
+    </LayoutSiderWrapper>
   );
 };
 
